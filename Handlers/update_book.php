@@ -6,7 +6,7 @@
     $description = $_POST['description'];
     $price = $_POST['price'];
 
-    $query = "INSERT INTO Book(name, description, price) VALUES(:name, :description, :price)";
+    $query = "UPDATE Book SET name = :name, description = :description, price = :price WHERE book_id = :id";
 
     $statement = $con->prepare($query);
 
@@ -14,7 +14,8 @@
         array(
             ':name' => $name,
             ':description' => $description,
-            ':price' => $price
+            ':price' => $price,
+            ':id' => $_GET['id']
         )
     );
 

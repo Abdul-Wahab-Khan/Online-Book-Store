@@ -1,3 +1,4 @@
+<?php include '../connection.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +13,26 @@
 <body>
     <div class="wrapper">
         <div class="container-fluid">
-            <h3>Book Registration</h3>
-            <form action="../Handlers/book_registration.php" method="POST">
+            <h3>Update Book Info</h3>
+            <?php 
+                $id = $_GET['id'];
+                $query = "SELECT * FROM Book WHERE book_id = :id";
+                $statement = $con->prepare($query); 
+                $statement->execute(array(":id" => $id));
+                $book = $statement->fetch();
+            ?>
+            <form action="../Handlers/update_book.php?id=<?php echo $id ?>" method="POST">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $book['name'] ?>">
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea class="form-control" id="description" name="description"></textarea>
+                    <textarea class="form-control" id="description" name="description"><?php echo $book['description'] ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="price">Price:</label>
-                    <input type="number" class="form-control" id="price" name="price">
+                    <input type="number" class="form-control" id="price" name="price" value="<?php echo $book['price'] ?>">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Register" class="btn btn-primary">
