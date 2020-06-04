@@ -20,6 +20,6 @@
     );
 
     if($res)
-        echo "Successed";
+        header("location:../Forms/show books.php?edit=true");
     else
-        echo "Failed";
+        header("location:../Forms/show books.php?edit=false");

@@ -16,6 +16,36 @@
 <body>
     <div class="wrapper">
         <div class="container">
+            <?php 
+                if(isset($_GET['delete']))
+                {
+                    if($_GET['delete'] == 'true')
+                    {
+                        echo "<div class='alert alert-success' role='alert'>
+                                Deleted Successfully
+                            </div>";
+                    }
+                    else {
+                        echo "<div class='alert alert-danger' role='alert'>
+                                Failed to Delete
+                            </div>";
+                    }
+                }
+                if(isset($_GET['edit']))
+                {
+                    if($_GET['edit'] == 'true')
+                    {
+                        echo "<div class='alert alert-success' role='alert'>
+                                Edited Successfully
+                            </div>";
+                    }
+                    else {
+                        echo "<div class='alert alert-danger' role='alert'>
+                                Failed to Edit
+                            </div>";
+                    }
+                } 
+            ?>
             <h3>All Books</h3>
             <table class="table table-hover" id="book_table">
                 <thead>

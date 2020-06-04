@@ -8,6 +8,6 @@
     $res = $statement->execute(array(":id" => $_GET['id']));
 
     if($res)
-        echo "Deleted";
+        header("location:../Forms/show books.php?delete=true");
     else
-        echo "Failed";
+        header("location:../Forms/show books.php?delete=false");

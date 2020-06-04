@@ -12,6 +12,22 @@
 <body>
     <div class="wrapper">
         <div class="container-fluid">
+            <?php 
+                if(isset($_GET['success']))
+                {
+                    if($_GET['success'] == 'true')
+                    {
+                        echo "<div class='alert alert-success' role='alert'>
+                                Created Successfully
+                            </div>";
+                    }
+                    else {
+                        echo "<div class='alert alert-danger' role='alert'>
+                                Failed to Create
+                            </div>";
+                    }
+                } 
+            ?>
             <h3>Book Registration</h3>
             <form action="../Handlers/create_book.php" method="POST">
                 <div class="form-group">
