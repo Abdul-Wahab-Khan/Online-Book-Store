@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `online_book_store`;
 USE `online_book_store`;
 
 CREATE TABLE IF NOT EXISTS `register_user` (
-  `register_user_id` int(11) PRIMARY KEY,
+  `register_user_id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `user_name` varchar(250) NOT NULL,
   `user_email` varchar(250) NOT NULL,
   `user_password` varchar(250) NOT NULL,
