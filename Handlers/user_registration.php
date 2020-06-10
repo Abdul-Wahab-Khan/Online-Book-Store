@@ -3,6 +3,8 @@
 
 include '../connection.php';
 
+    require_once 'vendor/autoload.php';
+
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -34,7 +36,22 @@ include '../connection.php';
             )
         );
         if($res) {
-            header("location:../Forms/user registration.php?user=true");
+            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+                    ->setUsername('someone@domain.com')
+                    ->setPassword('password');
+            $mailer = new Swift_Mailer($transport);
+
+            $body = 'Please click <a href="http://localhost/OBS/Online-Book-Store/Forms/email_confirmation.php?code=$activationCode">here</a> to activate your account';
+            $message = (new Swift_Message("PHP Project Email Confirmation Mail"))
+                            ->setFrom(['someone@domain.com' => 'name'])
+                            ->setTo(['someone@domain.com'])
+                            ->setBody($body)
+                            ->setContentType('text/html');
+
+            if($mailer->send($message))
+                header("location:../Forms/user registration.php?user=true");
+            else
+                header("location:../Forms/user registration.php?user=error");
         } else {
             header("location:../Forms/user registration.php?user=unknown");
         }
