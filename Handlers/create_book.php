@@ -19,6 +19,6 @@
     );
 
     if($res)
-        header("location:../Forms/create book.php?success=true");
+        echo "true";
     else
-        header("location:../Forms/create book.php?success=false");
+        echo "false";
