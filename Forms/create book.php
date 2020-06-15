@@ -12,22 +12,6 @@
 <body>
     <div class="wrapper">
         <div class="container-fluid" id="container">
-            <?php 
-                // if(isset($_GET['success']))
-                // {
-                //     if($_GET['success'] == 'true')
-                //     {
-                //         echo "<div class='alert alert-success' role='alert'>
-                //                 Created Successfully
-                //             </div>";
-                //     }
-                //     else {
-                //         echo "<div class='alert alert-danger' role='alert'>
-                //                 Failed to Create
-                //             </div>";
-                //     }
-                // } 
-            ?>
             <h3>Book Registration</h3>
             <form>
                 <div class="form-group">
@@ -58,7 +42,7 @@
             price = $("#price").val();
 
             $.ajax({
-                url: "../Handlers/create_ook.php",
+                url: "../Handlers/create_book.php",
                 method: "post",
                 data: { name: name, description: description, price: price },
             })

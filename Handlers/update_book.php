@@ -2,9 +2,7 @@
 
     include '../connection.php';
 
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $price = $_POST['price'];
+    $data = $_POST['data'];
 
     $query = "UPDATE Book SET name = :name, description = :description, price = :price WHERE book_id = :id";
 
@@ -12,14 +10,14 @@
 
     $res = $statement->execute(
         array(
-            ':name' => $name,
-            ':description' => $description,
-            ':price' => $price,
-            ':id' => $_GET['id']
+            ':name' => $data['name'],
+            ':description' => $data['description'],
+            ':price' => $data['price'],
+            ':id' => $_POST['id']
         )
     );
 
     if($res)
-        header("location:../Forms/show books.php?edit=true");
+        echo "updated";
     else
-        header("location:../Forms/show books.php?edit=false");
+        echo "Not Updated";

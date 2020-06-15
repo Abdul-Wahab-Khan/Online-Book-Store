@@ -49,10 +49,10 @@ include '../connection.php';
                             ->setContentType('text/html');
 
             if($mailer->send($message))
-                header("location:../Forms/user registration.php?user=true");
+                echo "Correct Now verify your email";
             else
-                header("location:../Forms/user registration.php?user=error");
+                echo "Error occured while registration";
         } else {
-            header("location:../Forms/user registration.php?user=unknown");
+            echo "Unknown error occured please try again later";
         }
     }
