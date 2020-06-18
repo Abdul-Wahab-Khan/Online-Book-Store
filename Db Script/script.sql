@@ -10,6 +10,15 @@ CREATE TABLE IF NOT EXISTS `register_user` (
   `user_email_status` enum('not verified','verified') NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2;
 
+CREATE TABLE IF NOT EXISTS `user_emailed_code` (
+  `code_id` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `register_user_id` int(11) not null,
+  `code` int(5) not null,
+  `verified` boolean,
+  FOREIGN KEY(register_user_id) REFERENCES register_user(register_user_id)
+) ENGINE=InnoDB;
+
+
 CREATE TABLE IF NOT EXISTS `Book` (
     `book_id` INT PRIMARY KEY AUTO_INCREMENT,
     `name` varchar(250) NOT NULL,
