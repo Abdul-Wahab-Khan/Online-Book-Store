@@ -2,8 +2,6 @@
 
     include '../../connection.php';
 
-    // require_once 'vendor/autoload.php';
-
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -21,7 +19,8 @@
             } else {
                 session_start();
                 $_SESSION['user'] = $result['user_name'];
-                header("location:../../pages/show books.php");
+                $_SESSION['email'] = $result['user_email'];
+                header("location:../../index.php");
             }
             
         } else {

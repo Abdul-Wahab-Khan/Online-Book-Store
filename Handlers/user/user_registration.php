@@ -52,18 +52,10 @@
                             ->setContentType('text/html');
         
             if($mailer->send($message))
-<<<<<<< HEAD:Handlers/user/user_registration.php
                 echo "Check your email account for email confirmation";
             else
                 echo "Error occured while email confirmation";
         } else {
             echo "Registration failed please try again later";
-=======
-                header("location:../Forms/user registration.php?user=true");
-            else
-                header("location:../Forms/user registration.php?user=error");
-        } else {
-            header("location:../Forms/user registration.php?user=unknown");
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Handlers/user_registration.php
         }
     }

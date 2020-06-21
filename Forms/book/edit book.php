@@ -1,4 +1,10 @@
 <?php include '../connection.php' ?>
+<?php 
+    session_start();
+    if(empty($_SESSION['user'])) {
+        header('location:../user/log in.php?retUrl='.$_SERVER['REQUEST_URI']);
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -93,8 +93,6 @@
         $(document).ready(function(){
             $("#book_table").DataTable();
         })
-<<<<<<< HEAD:pages/show books.php
-
         $(function(){
             $(".edit").click(function() {
                 id = $(this).attr("id");
@@ -167,8 +165,6 @@
                 })
             })
         })
-=======
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/show books.php
     </script>
 </body>
 </html>

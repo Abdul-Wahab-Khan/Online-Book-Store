@@ -12,35 +12,9 @@
 <body>
     <div class="wrapper">
         <div class="container-fluid">
-<<<<<<< HEAD:Forms/user/user registration.php
         <br>  <div>
                     <h3 class="text-center">Create Your Account</h3>
-=======
-            <form action="../Handlers/user_registration.php" method="POST">
-                <?php 
-                    if(isset($_GET['user']))
-                    {
-                        if($_GET['user'] == 'true')
-                        {
-                            echo "<div class='alert alert-success' role='alert'>
-                                    Registered Successfully
-                                </div>";
-                        }
-                        else if($_GET['user'] == 'exist') {
-                            echo "<div class='alert alert-warning' role='alert'>
-                                    Email is already registered
-                                </div>";
-                        } else {
-                            echo "<div class='alert alert-danger' role='alert'>
-                                    Registration failed due to an unknown error
-                                </div>";
-                        }
-                    } 
-                ?>
-                <div class="alert alert-primary">
-                    <h2>User Registration</h2>
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/user registration.php
-                </div>
+
             <hr>
 
             <div class="row">
@@ -57,14 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-<<<<<<< HEAD:Forms/user/user registration.php
-                    <input type="email" name="email" id="email" placeholder="Email" class="form-control">
-                    <div class="alert alert-danger" id="emailAlert" hidden>
-                        Email Already Exists
-                    </div>
-=======
                     <input type="email" name="email" id="email" class="form-control">
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/user registration.php
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -72,14 +39,8 @@
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
-<<<<<<< HEAD:Forms/user/user registration.php
-                    <input type="password" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword" class="form-control">
-=======
+
                     <input type="password" name="confirmPassword" id="confirmPassword" class="form-control">
-                </div>
-                <div>
-                    <input type="submit" value="Register" class="btn btn-info" disabled id="register">
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/user registration.php
                 </div>
                 <button class="btn btn-outline-primary" type="submit" id="register">Register</button>
                 </form>
@@ -88,7 +49,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD:Forms/user/user registration.php
 
     <div class="modal fade" id="resultModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -109,8 +69,6 @@
     </div>
     </div>
 
-=======
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/user registration.php
     <script>
         $(function(){
             $("#confirmPassword").keyup(function(){
@@ -122,7 +80,6 @@
                 else
                     $("#register").removeAttr("disabled");
             });
-<<<<<<< HEAD:Forms/user/user registration.php
 
             $("#email").keyup(function(){
                 email = $(this).val();
@@ -156,9 +113,6 @@
             //         $("#resultModal").modal("show");
             //     })
             // })
-
-=======
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/user registration.php
         })
     </script>
 </body>

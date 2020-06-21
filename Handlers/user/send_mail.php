@@ -8,6 +8,7 @@
             ->setUsername(EMAIL)
             ->setPassword(PASSWORD);
     $mailer = new Swift_Mailer($transport);
+    
 
     if(!isset($_GET['password'])) {
         $activationCode = md5(rand());

@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(empty($_SESSION['user'])) {
+        header('location:../user/log in.php?retUrl='.$_SERVER['REQUEST_URI']);
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +18,10 @@
 <body>
     <div class="wrapper">
         <div class="container-fluid" id="container">
-            <?php 
-                // if(isset($_GET['success']))
-                // {
-                //     if($_GET['success'] == 'true')
-                //     {
-                //         echo "<div class='alert alert-success' role='alert'>
-                //                 Created Successfully
-                //             </div>";
-                //     }
-                //     else {
-                //         echo "<div class='alert alert-danger' role='alert'>
-                //                 Failed to Create
-                //             </div>";
-                //     }
-                // } 
-            ?>
+            
             <h3>Book Registration</h3>
             <form>
+                <input type="hidden" value="<?php echo $_SESSION['email'] ?>">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" name="name">
@@ -74,11 +66,7 @@
             price = $("#price").val();
 
             $.ajax({
-<<<<<<< HEAD:Forms/book/create book.php
                 url: "../../Handlers/book/create_book.php",
-=======
-                url: "../Handlers/create_ook.php",
->>>>>>> parent of 984d2e0... Ajax functionalties finished:Forms/create book.php
                 method: "post",
                 data: { name: name, description: description, price: price },
             })
