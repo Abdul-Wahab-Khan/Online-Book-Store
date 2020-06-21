@@ -2,7 +2,7 @@
     include '../connection.php';
     session_start();
     if(empty($_SESSION['user'])) {
-        header('location:log in.php');
+        header('location:../Handlers/user/log in.php');
     }
 ?>
 <!DOCTYPE html>
