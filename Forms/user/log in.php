@@ -12,6 +12,7 @@
         $_SESSION['userId'] = $_COOKIE['userId'];
         header('location:../../index.php');
     }
+    
 
 ?>
 <!DOCTYPE html>

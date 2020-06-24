@@ -29,7 +29,7 @@
                 if(isset($_GET['retUrl'])) {
                     header("location:http://localhost".$_GET['retUrl']);
                 } else {
-                    // header('location:../../index.php');
+                    header('location:../../index.php');
                 }
             }
             
