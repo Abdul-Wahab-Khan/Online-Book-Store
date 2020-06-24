@@ -1,3 +1,18 @@
+<?php
+
+    $retUrlParameter = '';
+    if(isset($_GET['retUrl'])) {
+        $retUrlParameter .= '?retUrl='.$_GET['retUrl'];
+    }
+
+    if(isset($_COOKIE['remember_user'])) {
+        $_SESSION['user'] = $_COOKIE['remember_user'];
+        $_SESSION['email'] = $_COOKIE['email'];
+        $_SESSION['userId'] = $_COOKIE['userId'];
+        header('location:../../index.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +49,7 @@
                 </div>
                 <div class="form-group"> 
                 <div class="checkbox">
-                <label> <input type="checkbox"> Save password </label>
+                <label> <input type="checkbox" name="remember_me"> Save password </label>
                 </div> 
                 </div>   
                 <div class="form-group">
