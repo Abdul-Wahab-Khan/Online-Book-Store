@@ -18,9 +18,9 @@
                 header('location:../../Forms/user/unverified.php?email='.$result['user_email']);
             } else {
                 if(isset($_POST['remember_me'])) {
-                    setcookie('remember_user', $result['user_name'], time()+1*24*60*60);
-                    setcookie('email', $result['user_email']);
-                    setcookie('userId', $result['register_user_id']);
+                    setcookie('remember_user', $result['user_name'], time()+1*24*60*60, '/');
+                    setcookie('email', $result['user_email'], time()+1*24*60*60, '/');
+                    setcookie('userId', $result['register_user_id'], time()+1*24*60*60, '/');
                 }
                 session_start();
                 $_SESSION['user'] = $result['user_name'];

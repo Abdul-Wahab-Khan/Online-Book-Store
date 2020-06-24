@@ -6,6 +6,7 @@
     }
 
     if(isset($_COOKIE['remember_user'])) {
+        session_start();
         $_SESSION['user'] = $_COOKIE['remember_user'];
         $_SESSION['email'] = $_COOKIE['email'];
         $_SESSION['userId'] = $_COOKIE['userId'];
