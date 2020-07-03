@@ -8,17 +8,42 @@
 
     $con->beginTransaction();
 
-    $query = "INSERT INTO Book(name, description, price) VALUES(:name, :description, :price)";
+    if(isset($_FILES['book'])) {
+        if($_FILES['book']['type'] != 'image/png') {
+            echo 'The file extension is png ';
+            return;
+        }
+    
+        if($_FILES['book']['size'] > 102400) {
+            echo 'File bigger then 100kb not allowed';
+            return;
+        }
 
-    $statement = $con->prepare($query);
+        $fileDirectory = '../../Files/';
+        $uploadfile = $fileDirectory . basename($_FILES['book']['name']);
+        $res;
 
-    $res = $statement->execute(
-        array(
-            ':name' => $name,
-            ':description' => $description,
-            ':price' => $price
-        )
-    );
+        if(move_uploaded_file($_FILES['book']['tmp_name'], $uploadfile)) {
+            $query = "INSERT INTO Book(name, description, price, file_name) VALUES(:name, :description, :price, :fileName)";
+    
+            $statement = $con->prepare($query);
+        
+            $res = $statement->execute(
+                array (
+                    ':name' => $name,
+                    ':description' => $description,
+                    ':price' => $price,
+                    ':fileName' => $uploadfile
+                )
+            );
+        } else {
+            echo 'file not uploaded';
+        }
+    } else {
+        echo 'set the file please';
+        return;
+    }
+
 
     $bookId = $con->lastInsertId();
     $userId = $_SESSION['userId'];

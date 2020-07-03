@@ -20,7 +20,7 @@
         <div class="container-fluid" id="container">
             
             <h3>Book Registration</h3>
-            <form>
+            <form action="../../Handlers/book/create_book.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" value="<?php echo $_SESSION['email'] ?>">
                 <div class="form-group">
                     <label for="name">Name:</label>
@@ -35,7 +35,11 @@
                     <input type="number" class="form-control" id="price" name="price">
                 </div>
                 <div class="form-group">
-                    <input type="button" value="Register" id="submit" class="btn btn-primary">
+                    <label for="book">Choose Book:</label>
+                    <input type="file" class="form-control" id="book" name="book">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register" id="submit" class="btn btn-primary">
                 </div>
             </form>
         </div>
@@ -59,26 +63,27 @@
     </div>
 
 <script>
-    $(document).ready(function() {
-        $("#submit").click(function(){
-            name = $("#name").val();
-            description = $("#description").val();
-            price = $("#price").val();
+    // $(document).ready(function() {
+    //     $("#submit").click(function(){
+    //         name = $("#name").val();
+    //         description = $("#description").val();
+    //         price = $("#price").val();
 
-            $.ajax({
-                url: "../../Handlers/book/create_book.php",
-                method: "post",
-                data: { name: name, description: description, price: price },
-            })
-            .done(function(data){
-                $("#showResultBody").html('<h3>'+data+'</h3>');
-                $("#resultModal").modal("show");
-            })
-            .fail(function(data){
-                alert("Failed to send data");
-            })
-        })
-    })
+    //         $.ajax({
+    //             url: "../../Handlers/book/create_book.php",
+    //             method: "post",
+    //             data: { name: name, description: description, price: price },
+    //         })
+    //         .done(function(data){
+    //             // $("#showResultBody").html('<h3>'+data+'</h3>');
+    //             // $("#resultModal").modal("show");
+    //             alert(data);
+    //         })
+    //         .fail(function(data){
+    //             alert("Failed to send data");
+    //         })
+    //     })
+    // })
 </script>
 
 </html>

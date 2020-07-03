@@ -1,4 +1,4 @@
 <?php
 
-    define('EMAIL', 'your email');
-    define('PASSWORD', 'your password');
+    define('EMAIL', '');
+    define('PASSWORD', '');

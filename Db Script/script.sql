@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS `Book` (
     `book_id` INT PRIMARY KEY AUTO_INCREMENT,
     `name` varchar(250) NOT NULL,
     `description` varchar(500),
-    `price` int default 0
+    `price` int default 0,
+    `file_name` varchar(400) not null
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Borrowed_Book` (

@@ -76,9 +76,9 @@
                                         <td>'.$book['description'].'</td>
                                         <td>'.$book['price'].'</td>
                                         <td>';
-                                            $html.= '<a href="../Handlers/read_book.php?id='.$book['book_id'].'"><span class="fa fa-eye"> </span> </a>';
-                                            $html.= ' <a href="edit book.php?id='.$book['book_id'].'"><span class="fa fa-edit"> </span> </a>';
-                                            $html.= ' <a href="../Handlers/delete_book.php?id='.$book['book_id'].'"><span class="fa fa-trash"> </span> </a> 
+                                            $html.= '<a href="../Handlers/book/read_book.php?id='.$book['book_id'].'"><span class="fa fa-eye"> </span> </a>';
+                                            $html.= ' <a href="../Forms/book/edit book.php?id='.$book['book_id'].'"><span class="fa fa-edit"> </span> </a>';
+                                            $html.= ' <a href="../Handlers/book/delete_book.php?id='.$book['book_id'].'"><span class="fa fa-trash"> </span> </a> 
                                         </td>
                                     </tr>';
                         }

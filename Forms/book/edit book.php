@@ -1,4 +1,4 @@
-<?php include '../connection.php' ?>
+<?php include '../../connection.php' ?>
 <?php 
     session_start();
     if(empty($_SESSION['user'])) {
@@ -43,7 +43,7 @@
                 $statement->execute(array(":id" => $id));
                 $book = $statement->fetch();
             ?>
-            <form action="../../Handlers/book/update_book.php?id=<?php echo $id ?>" method="POST">
+            <form action="../../Handlers/book/update_book.php?id=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" name="name" value="<?php echo $book['name'] ?>">
@@ -55,6 +55,15 @@
                 <div class="form-group">
                     <label for="price">Price:</label>
                     <input type="number" class="form-control" id="price" name="price" value="<?php echo $book['price'] ?>">
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <img src="<?php echo $book['file_name'] ?>" width="200" alt="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="book">Choose File:</label>
+                    <input type="file" class="form-control" id="book" name="book">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-primary">
