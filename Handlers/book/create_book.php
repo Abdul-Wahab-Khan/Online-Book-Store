@@ -19,7 +19,7 @@
             return;
         }
 
-        $fileDirectory = '../../Files/';
+        $fileDirectory = '/opt/lampp/htdocs/Online-Book-Store/Files/';
         $uploadfile = $fileDirectory . basename($_FILES['book']['name']);
         $res;
 
